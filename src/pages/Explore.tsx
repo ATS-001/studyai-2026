@@ -239,19 +239,25 @@ const Explore: React.FC = () => {
 
   const shareTable = async () => {
     if (!tableRef.current) return;
-    const canvas = await html2canvas(tableRef.current, { backgroundColor: "#0a0a0a", scale: 2 });
-    canvas.toBlob(async (blob) => {
+    try {
+      const canvas = await html2canvas(tableRef.current, { backgroundColor: "#0a0a0a", scale: 2 });
+      const blob = await new Promise<Blob | null>((res) => canvas.toBlob(res, "image/png"));
       if (!blob) return;
       const file = new File([blob], `${fileName}.png`, { type: "image/png" });
-      if (navigator.share) {
-        try {
-          await navigator.share({ files: [file], title: "StudyAI Timetable" });
-        } catch {}
+
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: "StudyAI Timetable" });
+      } else if (navigator.clipboard && typeof ClipboardItem !== "undefined") {
+        await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+        alert("Timetable copied to clipboard!");
       } else {
-        // fallback: download
+        // final fallback: download
         downloadAs("png");
       }
-    });
+    } catch (err) {
+      // User cancelled or error — fallback to download
+      downloadAs("png");
+    }
   };
 
   /* ─── input style ─── */
@@ -353,18 +359,18 @@ const Explore: React.FC = () => {
                     {subj.modules.map((mod, mIdx) => (
                       <div key={mIdx} className="ml-4 flex items-center gap-2">
                         <input
-                          className={inputClass + " flex-1"}
+                          className={inputClass + " flex-1 min-w-0"}
                           placeholder={`Module ${mIdx + 1}`}
                           value={mod.name}
                           onChange={(e) => updateModule(sIdx, mIdx, "name", e.target.value)}
                         />
                         <select
-                          className={inputClass + " w-28"}
+                          className={inputClass + " w-20 shrink-0"}
                           value={mod.difficulty}
                           onChange={(e) => updateModule(sIdx, mIdx, "difficulty", e.target.value)}
                         >
                           <option value="Easy">Easy</option>
-                          <option value="Medium">Medium</option>
+                          <option value="Medium">Med</option>
                           <option value="Hard">Hard</option>
                         </select>
                         {subj.modules.length > 1 && (
