@@ -239,19 +239,25 @@ const Explore: React.FC = () => {
 
   const shareTable = async () => {
     if (!tableRef.current) return;
-    const canvas = await html2canvas(tableRef.current, { backgroundColor: "#0a0a0a", scale: 2 });
-    canvas.toBlob(async (blob) => {
+    try {
+      const canvas = await html2canvas(tableRef.current, { backgroundColor: "#0a0a0a", scale: 2 });
+      const blob = await new Promise<Blob | null>((res) => canvas.toBlob(res, "image/png"));
       if (!blob) return;
       const file = new File([blob], `${fileName}.png`, { type: "image/png" });
-      if (navigator.share) {
-        try {
-          await navigator.share({ files: [file], title: "StudyAI Timetable" });
-        } catch {}
+
+      if (navigator.share && navigator.canShare?.({ files: [file] })) {
+        await navigator.share({ files: [file], title: "StudyAI Timetable" });
+      } else if (navigator.clipboard && typeof ClipboardItem !== "undefined") {
+        await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+        alert("Timetable copied to clipboard!");
       } else {
-        // fallback: download
+        // final fallback: download
         downloadAs("png");
       }
-    });
+    } catch (err) {
+      // User cancelled or error — fallback to download
+      downloadAs("png");
+    }
   };
 
   /* ─── input style ─── */
