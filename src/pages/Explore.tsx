@@ -353,18 +353,18 @@ const Explore: React.FC = () => {
                     {subj.modules.map((mod, mIdx) => (
                       <div key={mIdx} className="ml-4 flex items-center gap-2">
                         <input
-                          className={inputClass + " flex-1"}
+                          className={inputClass + " flex-1 min-w-0"}
                           placeholder={`Module ${mIdx + 1}`}
                           value={mod.name}
                           onChange={(e) => updateModule(sIdx, mIdx, "name", e.target.value)}
                         />
                         <select
-                          className={inputClass + " w-28"}
+                          className={inputClass + " w-20 shrink-0"}
                           value={mod.difficulty}
                           onChange={(e) => updateModule(sIdx, mIdx, "difficulty", e.target.value)}
                         >
                           <option value="Easy">Easy</option>
-                          <option value="Medium">Medium</option>
+                          <option value="Medium">Med</option>
                           <option value="Hard">Hard</option>
                         </select>
                         {subj.modules.length > 1 && (
