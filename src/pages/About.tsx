@@ -5,12 +5,12 @@ const team = [
   {
     initials: "ATS",
     name: "Aaron Thalakkottor Sooraj",
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/aaronts127pdz/",
   },
   {
     initials: "AT",
     name: "Alwin Thomas V",
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/alwin-thomas-v-033057384/",
   },
 ];
 
