@@ -74,7 +74,7 @@ const Index = () => {
           transition={{ delay: 0.7 }}
           className="mb-10 max-w-xl text-muted-foreground"
         >
-          Generate intelligent, difficulty-weighted study timetables. Powered by CognifyAI.
+          Generate intelligent, difficulty-weighted study timetables. Powered by HexnicAI.
         </motion.p>
 
         <motion.div

@@ -245,17 +245,42 @@ const Explore: React.FC = () => {
       if (!blob) return;
       const file = new File([blob], `${fileName}.png`, { type: "image/png" });
 
-      if (navigator.share && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: "StudyAI Timetable" });
-      } else if (navigator.clipboard && typeof ClipboardItem !== "undefined") {
-        await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
-        alert("Timetable copied to clipboard!");
-      } else {
-        // final fallback: download
-        downloadAs("png");
+      // Try Web Share API first (mobile)
+      if (typeof navigator.share === "function") {
+        try {
+          if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            await navigator.share({ files: [file], title: "StudyAI Timetable" });
+            return;
+          }
+          // Share without file
+          const dataUrl = canvas.toDataURL("image/png");
+          await navigator.share({ title: "StudyAI Timetable", text: "Check out my study timetable!", url: window.location.href });
+          return;
+        } catch (shareErr) {
+          // User cancelled share dialog - don't fallback
+          if ((shareErr as DOMException)?.name === "AbortError") return;
+        }
       }
+
+      // Clipboard fallback (desktop)
+      try {
+        if (navigator.clipboard && typeof ClipboardItem !== "undefined") {
+          await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
+          alert("✅ Timetable image copied to clipboard!");
+          return;
+        }
+      } catch {
+        // clipboard failed, fall through
+      }
+
+      // Final fallback: download
+      const link = document.createElement("a");
+      link.download = `${fileName}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      alert("📥 Timetable downloaded as PNG!");
     } catch (err) {
-      // User cancelled or error — fallback to download
+      console.error("Share error:", err);
       downloadAs("png");
     }
   };
