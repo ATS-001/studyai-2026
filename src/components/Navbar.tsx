@@ -56,7 +56,7 @@ const Navbar = () => {
           )}
 
           <motion.a
-            href="https://github.com/ATS-001/StudyAI"
+            href="https://github.com/ATS-001/studyai-2026"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
