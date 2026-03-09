@@ -293,9 +293,9 @@ const Explore: React.FC = () => {
   return (
     <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 sm:py-20">
       {/* Header */}
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-4 flex items-center justify-between">
-        <h1 className="font-mono text-3xl font-bold gradient-text text-glow">StudyAI</h1>
-        <span className="rounded-full border border-glow/30 px-4 py-1 text-xs font-mono text-primary">Adaptive Study Orchestrator</span>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <h1 className="font-mono text-2xl sm:text-3xl font-bold gradient-text text-glow">StudyAI</h1>
+        <span className="rounded-full border border-glow/30 px-3 sm:px-4 py-1 text-xs font-mono text-primary">Adaptive Study Orchestrator</span>
       </motion.div>
 
       {/* Progress */}
