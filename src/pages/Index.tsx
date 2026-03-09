@@ -42,7 +42,7 @@ const Index = () => {
   return (
     <div className="relative z-10">
       {/* Hero */}
-      <section className="flex min-h-[90vh] flex-col items-center justify-center px-6 text-center">
+      <section className="flex min-h-[90vh] flex-col items-center justify-center px-4 sm:px-6 text-center">
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
