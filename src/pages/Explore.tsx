@@ -584,7 +584,7 @@ const Explore: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {["png", "jpg", "jpeg", "pdf"].map((fmt) => (
                     <motion.button
                       key={fmt}
