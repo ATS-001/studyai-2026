@@ -42,7 +42,7 @@ const Index = () => {
   return (
     <div className="relative z-10">
       {/* Hero */}
-      <section className="flex min-h-[90vh] flex-col items-center justify-center px-4 sm:px-4 sm:px-6 text-center">
+      <section className="flex min-h-[90vh] flex-col items-center justify-center px-4 sm:px-4 sm:px-4 sm:px-6 text-center">
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ const Index = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, type: "spring" }}
-          className="mb-2 font-mo4xl sm:text-no text-6xl md:text-8xl font-bold gradient-text text-glow"
+          className="mb-24xl sm:text- font-mo4xl sm:text-no text-6xl md:text-8xl font-bold gradient-text text-glow"
         >
           StudyAI
         </motion.h1>
@@ -81,7 +81,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
-          className="flex gap-4"
+      flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-centerlassName="flex gap-4"
         >
           <Link
             to="/explore"
