@@ -291,7 +291,7 @@ const Explore: React.FC = () => {
   const labelClass = "mb-1 block text-xs font-mono text-muted-foreground";
 
   return (
-    <div className="relative z-10 container mx-auto px-6 py-20">
+    <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 sm:py-20">
       {/* Header */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-4 flex items-center justify-between">
         <h1 className="font-mono text-3xl font-bold gradient-text text-glow">StudyAI</h1>
