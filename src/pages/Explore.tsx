@@ -382,7 +382,7 @@ const Explore: React.FC = () => {
                     </div>
 
                     {subj.modules.map((mod, mIdx) => (
-                      <div key={mIdx} className="ml-4 flex items-center gap-2">
+                      <div key={mIdx} className="ml-2 sm:ml-4 flex items-center gap-2">
                         <input
                           className="flex-1 min-w-0 rounded-lg border border-border bg-muted/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           placeholder={`Module ${mIdx + 1}`}
