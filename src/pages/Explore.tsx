@@ -325,7 +325,7 @@ const Explore: React.FC = () => {
       </AnimatePresence>
 
       {/* Steps */}
-      <div className="glass rounded-2xl p-8 min-h-[400px] overflow-hidden">
+      <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-8 min-h-[400px] overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={step}
