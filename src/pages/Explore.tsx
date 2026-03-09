@@ -418,7 +418,7 @@ const Explore: React.FC = () => {
 
                 <div className="rounded-xl border border-border bg-muted/30 p-4 space-y-4">
                   <h3 className="font-mono text-sm font-semibold text-foreground">Schedule Settings</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className={labelClass}>Start Time</label>
                       <input type="time" className={inputClass} value={form.startTime} onChange={(e) => updateField("startTime", e.target.value)} />
