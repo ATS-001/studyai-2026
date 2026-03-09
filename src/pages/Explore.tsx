@@ -291,11 +291,11 @@ const Explore: React.FC = () => {
   const labelClass = "mb-1 block text-xs font-mono text-muted-foreground";
 
   return (
-    <div className="relative z-10 container mx-auto px-6 py-20">
+    <div className="relative z-10 container mx-auto px-4 sm:px-6 py-16 sm:py-20">
       {/* Header */}
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-4 flex items-center justify-between">
-        <h1 className="font-mono text-3xl font-bold gradient-text text-glow">StudyAI</h1>
-        <span className="rounded-full border border-glow/30 px-4 py-1 text-xs font-mono text-primary">Adaptive Study Orchestrator</span>
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <h1 className="font-mono text-2xl sm:text-3xl font-bold gradient-text text-glow">StudyAI</h1>
+        <span className="rounded-full border border-glow/30 px-3 sm:px-4 py-1 text-xs font-mono text-primary">Adaptive Study Orchestrator</span>
       </motion.div>
 
       {/* Progress */}
@@ -325,7 +325,7 @@ const Explore: React.FC = () => {
       </AnimatePresence>
 
       {/* Steps */}
-      <div className="glass rounded-2xl p-8 min-h-[400px] overflow-hidden">
+      <div className="glass rounded-xl sm:rounded-2xl p-4 sm:p-8 min-h-[400px] overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={step}
@@ -382,7 +382,7 @@ const Explore: React.FC = () => {
                     </div>
 
                     {subj.modules.map((mod, mIdx) => (
-                      <div key={mIdx} className="ml-4 flex items-center gap-2">
+                      <div key={mIdx} className="ml-2 sm:ml-4 flex items-center gap-2">
                         <input
                           className="flex-1 min-w-0 rounded-lg border border-border bg-muted/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           placeholder={`Module ${mIdx + 1}`}
@@ -418,7 +418,7 @@ const Explore: React.FC = () => {
 
                 <div className="rounded-xl border border-border bg-muted/30 p-4 space-y-4">
                   <h3 className="font-mono text-sm font-semibold text-foreground">Schedule Settings</h3>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className={labelClass}>Start Time</label>
                       <input type="time" className={inputClass} value={form.startTime} onChange={(e) => updateField("startTime", e.target.value)} />
@@ -584,7 +584,7 @@ const Explore: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {["png", "jpg", "jpeg", "pdf"].map((fmt) => (
                     <motion.button
                       key={fmt}
