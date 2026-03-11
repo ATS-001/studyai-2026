@@ -81,7 +81,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 }}
-      flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-centerlassName="flex gap-4"
+      className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-center"
         >
           <Link
             to="/explore"
