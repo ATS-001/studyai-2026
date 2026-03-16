@@ -384,13 +384,14 @@ const Explore: React.FC = () => {
                     {subj.modules.map((mod, mIdx) => (
                       <div key={mIdx} className="ml-2 sm:ml-4 flex items-center gap-2">
                         <input
+                          dir="ltr"
                           className="flex-1 min-w-0 rounded-lg border border-border bg-muted/50 px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           placeholder={`Module ${mIdx + 1}`}
                           value={mod.name}
                           onChange={(e) => updateModule(sIdx, mIdx, "name", e.target.value)}
                         />
                         <select
-                          className={inputClass + " w-20 shrink-0"}
+                          className="w-[70px] shrink-0 rounded-lg border border-border bg-muted/50 px-2 py-2 text-xs text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                           value={mod.difficulty}
                           onChange={(e) => updateModule(sIdx, mIdx, "difficulty", e.target.value)}
                         >
@@ -469,8 +470,8 @@ const Explore: React.FC = () => {
                   </div>
 
                   {/* Table */}
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                  <div className="overflow-x-auto" dir="ltr">
+                    <table className="w-full text-sm" style={{ direction: "ltr" }}>
                       <thead>
                         <tr className="border-b border-border text-left">
                           <th className="pb-2 pr-4 font-mono text-xs text-primary">#</th>
