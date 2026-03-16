@@ -7,6 +7,9 @@ import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import Explore from "./pages/Explore";
 import About from "./pages/About";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Docs from "./pages/Docs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
