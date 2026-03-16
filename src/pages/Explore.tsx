@@ -470,8 +470,8 @@ const Explore: React.FC = () => {
                   </div>
 
                   {/* Table */}
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
+                  <div className="overflow-x-auto" dir="ltr">
+                    <table className="w-full text-sm" style={{ direction: "ltr" }}>
                       <thead>
                         <tr className="border-b border-border text-left">
                           <th className="pb-2 pr-4 font-mono text-xs text-primary">#</th>
