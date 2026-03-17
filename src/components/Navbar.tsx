@@ -10,7 +10,7 @@ const Navbar = () => {
   const links = [
     { to: "/", label: "Home" },
     { to: "/explore", label: "Explore" },
-    { href: "https://ats-001.github.io/HexnicAI/", label: "HexnicAI" },
+    { href: "https://hexnicai.vercel.app/", label: "HexnicAI" },
   ];
 
   return (
